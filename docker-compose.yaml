@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  app1:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - '80:80'
+  app2:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - '80:80'
