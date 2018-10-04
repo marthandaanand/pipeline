@@ -1,7 +1,11 @@
-FROM centos:latest
+FROM nginx
+
+RUN  echo "daemon off;" >> /etc/nginx/nginx.conf
+
+COPY default /etc/nginx/conf.d/default.conf
 
 RUN \
-    yum install epel-release -y && \
-    yum install nginx, lynx -y
+	ln -sf /dev/stdout /var/log/nginx/access.log && \
+    ln -sf /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 80
+CMD ["nginx"]
